@@ -1,8 +1,9 @@
-package firth_wpgtransit_wrapper;
+import firth_wpgtransit_wrapper.TransitConnector;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import firth_wpgtransit_wrapper.*;
 /**
  * Created by James on 12/9/2014.
  */
@@ -22,10 +23,7 @@ public class bootstrap_tests
             {
                 api_key = sc.nextLine();
             }
-//            while (sc.hasNextLine()) {
-//                int i = sc.nextInt();
-//                System.out.println(i);
-//            }
+
             sc.close();
         }
         catch (FileNotFoundException e) {
@@ -33,9 +31,10 @@ public class bootstrap_tests
         }
 
 
-        if(api_key != null && api_key != "") {
+        if(api_key != null && !api_key.equals("")) {
             TransitConnector trns = new TransitConnector(api_key);
-            trns.getStopInfo();
+            Stop aStop = trns.getStopInfo();
+            System.out.println("Stop info: "+aStop.getKey()+ " " +aStop.getName());
         }
         else
         {
