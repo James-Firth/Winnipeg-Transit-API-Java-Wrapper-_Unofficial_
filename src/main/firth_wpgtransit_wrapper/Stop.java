@@ -1,4 +1,4 @@
-package firth_wpgtransit_wrapper;
+package main.firth_wpgtransit_wrapper;
 
 import org.json.simple.JSONObject;
 

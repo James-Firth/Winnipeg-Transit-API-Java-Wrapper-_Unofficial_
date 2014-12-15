@@ -1,4 +1,4 @@
-package firth_wpgtransit_wrapper;
+package main.firth_wpgtransit_wrapper;
 
 import org.json.simple.JSONObject;
 
@@ -11,11 +11,17 @@ public class Street
     private String name;
     private String type;
 
-    public Street(int stKey, String stName, String stType)
+    private Street(int stKey, String stName, String stType)
     {
         key = stKey;
         name = stName;
         type = stType;
+    }
+
+    public static Street buildStreet(int stKey, String stName, String stType)
+    {
+        Street tmp = new Street(stKey, stName, stType);
+        return tmp;
     }
 
     public static Street createStreetFromJSON(JSONObject info)

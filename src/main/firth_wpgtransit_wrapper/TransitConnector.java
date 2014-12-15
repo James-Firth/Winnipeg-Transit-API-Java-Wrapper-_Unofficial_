@@ -1,4 +1,4 @@
-package firth_wpgtransit_wrapper;
+package main.firth_wpgtransit_wrapper;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,13 +10,24 @@ import java.net.URL;
 
 public class TransitConnector
 {
-    private final String USER_AGENT = "Mozilla/5.0";
+    private static final String USER_AGENT = "Mozilla/5.0";
+    private static final int KEY_LENGTH = 20;
     private String API_KEY = "";
 
-    public TransitConnector(String key)
+    private TransitConnector(String key)
     {
         API_KEY = key;
+    }
 
+    public static TransitConnector buildTransitConnector(String key)
+    {
+        TransitConnector tmp = null;
+        if(KEY_LENGTH == key.length())
+        {
+            tmp = new TransitConnector(key);
+        }
+
+        return tmp;
     }
 
 
